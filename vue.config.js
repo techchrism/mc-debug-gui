@@ -6,5 +6,5 @@ module.exports = {
             new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
         ]
     },
-    publicPath: process.env.NODE_ENV === 'production' ? '/mcdebuggui/' : '/'
+    publicPath: process.env.NODE_ENV === 'production' ? '/MCDebugGui/' : '/'
 };
