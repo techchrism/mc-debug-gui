@@ -24,25 +24,25 @@
             return {
                 rowsShown: 50,
                 currentPage: 1,
-                fields: {
-                    type: {
+                fields: [
+                    {
                         label: 'Type',
                         key: 'type',
                         sortable: true
                     },
-                    x: {
+                    {
                         label: 'X',
                         key: 'x'
                     },
-                    y: {
+                    {
                         label: 'Y',
                         key: 'y'
                     },
-                    z: {
+                    {
                         label: 'Z',
                         key: 'z'
                     }
-                }
+                ]
             }
         },
         computed: {

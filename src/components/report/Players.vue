@@ -5,7 +5,7 @@
         </b-card>
 
         <b-table striped :items="players" :fields="fields">
-            <template slot="icon" slot-scope="data">
+            <template v-slot:cell(icon)="data">
                 <img :src="'https://crafatar.com/avatars/' + data.item.uuid + '?size=27'">
             </template>
         </b-table>
@@ -22,38 +22,39 @@
         data()
         {
             return {
-                fields: {
-                    icon: {
+                fields: [
+                    {
+                        key: 'icon',
                         label: ''
                     },
-                    name: {
+                    {
                         label: 'Name',
                         key: 'name',
                         sortable: true
                     },
-                    uuid: {
+                    {
                         label: 'UUID',
                         key: 'uuid',
                         sortable: true
                     },
-                    world: {
+                    {
                         label: 'World',
                         key: 'world',
                         sortable: true
                     },
-                    x: {
+                    {
                         label: 'X',
                         key: 'x'
                     },
-                    y: {
+                    {
                         label: 'Y',
                         key: 'y'
                     },
-                    z: {
+                    {
                         label: 'Z',
                         key: 'z'
                     }
-                }
+                ]
             }
         },
         computed: {

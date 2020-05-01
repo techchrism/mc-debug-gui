@@ -1,6 +1,6 @@
 <template>
     <b-table striped :items="rules" :fields="fields">
-        <template slot="value-bold" slot-scope="data">
+        <template v-slot:cell(value-bold)="data">
             <span :class="{'font-weight-bold': (data.item.hasOwnProperty('default') && data.item.value !== data.item.default)}">
                 {{data.item.value}}
             </span>

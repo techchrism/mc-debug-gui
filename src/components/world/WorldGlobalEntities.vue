@@ -8,43 +8,43 @@
         data()
         {
             return {
-                fields: {
-                    type: {
+                fields: [
+                    {
                         label: 'Type',
                         key: 'type',
                         sortable: true
                     },
-                    displayName: {
+                    {
                         label: 'Display Name',
                         key: 'display_name',
                         sortable: true
                     },
-                    customName: {
+                    {
                         label: 'Custom Name',
                         key: 'custom_name',
                         sortable: true
                     },
-                    alive: {
+                    {
                         label: 'Alive',
                         key: 'alive'
                     },
-                    uuid: {
+                    {
                         label: 'UUID',
                         key: 'uuid'
                     },
-                    x: {
+                    {
                         label: 'X',
                         key: 'x'
                     },
-                    y: {
+                    {
                         label: 'Y',
                         key: 'y'
                     },
-                    z: {
+                    {
                         label: 'Z',
                         key: 'z'
                     }
-                }
+                ]
             }
         },
         computed: {
