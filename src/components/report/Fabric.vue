@@ -10,22 +10,22 @@
         data()
         {
             return {
-                fields: {
-                    'name': {
+                fields: [
+                    {
                         key: 'name',
                         label: 'Name',
                         sortable: true
                     },
-                    'version': {
+                    {
                         key: 'version',
                         label: 'Version'
                     },
-                    'id': {
+                    {
                         key: 'id',
                         label: 'ID',
                         sortable: true
                     }
-                }
+                ]
             }
         },
         computed: {

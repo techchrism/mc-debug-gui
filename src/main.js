@@ -9,11 +9,7 @@ import {loadDB} from './db';
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 Vue.component('fa-icon', FontAwesomeIcon);
 
-//import {fas} from '@fortawesome/free-solid-svg-icons'
-
-
 Vue.config.productionTip = false;
-
 
 importBootstrapVue(Vue);
 

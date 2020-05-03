@@ -1,3 +1,23 @@
+function parseMod(name, value)
+{
+    let version = value.match(/(\d+\.\d+\.\d+(?:\+.+)?)/g);
+    if(version == null)
+    {
+        // Fall back to the data after the last space if we can't find semver
+        version = value.substr(value.lastIndexOf(' ') + 1);
+    }
+    else
+    {
+        version = version[0];
+    }
+    let fullname = value.substr(0, value.indexOf(version) - 1);
+    return {
+        id: name,
+        name: fullname,
+        version: version
+    };
+}
+
 function parseCrash(data)
 {
     let retData = {
@@ -18,7 +38,7 @@ function parseCrash(data)
     {
         if((flags.details || flags.leveldetail) && line !== 'Details:')
         {
-            if(flags.fabric && !line.startsWith('\t\t'))
+            if(flags.fabric && !(line.startsWith('\t\t') || line.startsWith('               ')))
             {
                 flags.fabric = false;
             }
@@ -95,17 +115,16 @@ function parseCrash(data)
                 {
                     if(flags.fabric)
                     {
-                        let version = value.match(/(\d+\.\d+\.\d+(?:\+.+)?)/g)[0];
-                        let fullname = value.substr(0, value.indexOf(version) - 1);
-                        retData.fabric.push({
-                            id: name,
-                            name: fullname,
-                            version: version
-                        });
+                        retData.fabric.push(parseMod(name, value));
                     }
                     else if(name === 'Fabric Mods')
                     {
                         flags.fabric = true;
+                        if(value !== '')
+                        {
+                            let firstModSplit = value.split(': ');
+                            retData.fabric.push(parseMod(firstModSplit[0], firstModSplit[1]));
+                        }
                     }
                     else if(flags.leveldetail)
                     {
