@@ -1,7 +1,5 @@
 <template>
-    <b-table striped :items="mods" :fields="fields">
-
-    </b-table>
+    <b-table striped :items="mods" :fields="fields"/>
 </template>
 
 <script>

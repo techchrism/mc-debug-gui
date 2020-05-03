@@ -1,5 +1,6 @@
 function parseMod(name, value)
 {
+    // Try to match semver
     let version = value.match(/(\d+\.\d+\.\d+(?:\+.+)?)/g);
     if(version == null)
     {
@@ -10,6 +11,7 @@ function parseMod(name, value)
     {
         version = version[0];
     }
+    // Grab data before the version
     let fullname = value.substr(0, value.indexOf(version) - 1);
     return {
         id: name,
