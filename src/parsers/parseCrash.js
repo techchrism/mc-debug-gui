@@ -68,7 +68,7 @@ function parseCrash(data)
                     retData.details.players = [];
                     
                     // Using sketchy regex on a data source I don't own (or even understand)? What could go wrong?
-                    let players = parts[1].match(/(?:\[([^\[\]]+?)\])+/);
+                    let players = parts[1].match(/(?:\[(.*?)\](?:,|\]))+/);
                     players.splice(0, 1);
                     for(let player of players)
                     {
